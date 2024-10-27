@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block title %}FMS - Home{% endblock %}
+
+{% block content %}
+<p>Te Waihora farm management simulator (FMS) is a system that models stock management on a farm.  The aim is for the farmer to simulate the number of stock (cows in this case) that the farm can maintain, with the amount of pasture (grass) that it has available for the stock to eat. </p>
+<img src="{{ url_for('static', filename='images/stock.jpg') }}" alt="stock照片" height="600px" width="800px">
+{% endblock %}

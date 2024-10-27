@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Add_update_paddock{% endblock %}
+
+{% block content %}
+
+    <form action="/add_update_paddock" method="post">
+        {% if paddock %}
+            <h2> Edit Paddock</h2>
+            <div class="mb-3">
+                <label for="basic-url" class="form-label">Paddock ID</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="id" aria-describedby="basic-addon3" name="id"
+                           value="{{ paddock[0] }}"
+                           readonly>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="basic-url" class="form-label">Paddock Name</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="name" aria-describedby="basic-addon3" name="name"
+                           value="{{ paddock[1] }}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="basic-url" class="form-label">Paddock Area</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="area" aria-describedby="basic-addon3" name="area"
+                           value="{{ paddock[2] }}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="basic-url" class="form-label">Paddock dm_per_ha</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="dm_per_ha" aria-describedby="basic-addon3" name="dm_per_ha"
+                           value="{{ paddock[3] }}">
+                </div>
+            </div>
+        {% else %}
+            <h2> Add Paddock</h2>
+            <div class="mb-3">
+                <label for="basic-url" class="form-label">Paddock Name</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="name" aria-describedby="basic-addon3" name="name"
+                    >
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="basic-url" class="form-label">Paddock Area</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="area" aria-describedby="basic-addon3" name="area">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="basic-url" class="form-label">Paddock dm_per_ha</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="dm_per_ha" aria-describedby="basic-addon3" name="dm_per_ha">
+                </div>
+            </div>
+        {% endif %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Mobs{% endblock %}
+
+{% block content %}
+
+<h2>Mobs</h2>
+
+    <table class="table">
+        <tr>
+            <th scope="col">Mob ID</th>
+            <th scope="col">Mob Name</th>
+            <th scope="col">Paddock Name</th>
+        </tr>
+        {% for mob in mobs %}  
+            <tr scope="row">
+                <td>{{mob[0]}}</td>  
+                <td>{{mob[1]}}</td>  
+                <td>{{mob[3]}}</td>
+            </tr>
+        {% endfor %}    
+    </table>
+
+{% endblock %}

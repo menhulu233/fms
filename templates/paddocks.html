@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Paddocks{% endblock %}
+
+{% block content %}
+    <h2>Paddocks</h2>
+    <form action="/paddocks" method="post">
+        <div>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" value="{{ session['curr_date'].strftime("%Y-%m-%d") }}">
+        </div>
+        <button type="submit" class="btn btn-primary">show the number DM of the day</button>
+    </form>
+    <a href="/add_update_paddock" class="btn btn-warning bg-primary">add paddock</a>
+    <table class="table">
+        <tr>
+            <th scope="col">Paddock ID</th>
+            <th scope="col">Paddock Name</th>
+            <th scope="col">Paddock Area</th>
+            <th scope="col">Paddock DM_PRE_Ha</th>
+            <th scope="col">Paddock Total Dm</th>
+            <th scope="col">Mob Name</th>
+            <th scope="col">Stock Count</th>
+            <th scope="col">Operation</th>
+        </tr>
+        {% for paddock in paddocks_data %}
+            <tr scope="row"
+                    {% if paddock[3] <=1500 %}
+                class="bg-danger"  <!-- 红色背景 -->
+                    {% else %}
+                        class="bg-warning" <!-- 黄色背景 -->
+                    {% endif %}>
+            <td>{{ paddock[0] }}</td>
+            <td>{{ paddock[1] }}</td>
+            <td>{{ paddock[2] }}</td>
+            <td>{{ paddock[3] }}</td>
+            <td>{{ paddock[4] }}</td>
+            <td>{{ paddock[5] }}</td>
+            <td>{{ paddock[6] }}</td>
+            <td><a href="/add_update_paddock?paddock_id={{ paddock[0] }}" class="btn btn-warning bg-primary">edit paddock</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+{% endblock %}

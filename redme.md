@@ -1,4 +1,3 @@
-# fms
 创建mobs的语句
 ```sql
 drop schema if exists fms;

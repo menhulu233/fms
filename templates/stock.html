@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Stock{% endblock %}
+
+{% block content %}
+
+    <h2>Stock</h2>
+    {% for mob in mobs %}
+        <div><h3>Mob:{{ mob[1] }}</h3></div>
+        <div>Paddock :{{ mob[3] }} Average Weight:{{ mob[4] }}</div>
+        <table class="table">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Mob Id</th>
+                <th scope="col">Dob</th>
+                <th scope="col">Stock</th>
+                <th scope="col">Age</th>
+            </tr>
+            {% for detail in detail_data %}
+                {% if mob.id==detail.mob_id %}
+                    <tr scope="row">
+                        <td>{{ detail[0] }}</td>
+                        <td>{{ detail[1] }}</td>
+                        <td>{{ detail[2] }}</td>
+                        <td>{{ detail[3] }}</td>
+                        <td>{{ detail[4] }}</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    {% endfor %}
+
+{% endblock %}

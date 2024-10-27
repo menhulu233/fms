@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}move_mob{% endblock %}
+
+{% block content %}
+<h2> Move Mob</h2>
+    <form action="/move_mob" method="post">
+    <div> the opt Mob</div>
+        <select name="op_mob_id" id="op_mob_id" class="form-select" aria-label="Select Example">
+            <option selected> Select Mob</option>
+            {% for all_mob in all_mobs %}
+                <option value="{{ all_mob[2] }}">{{ all_mob[1] }}</option>
+            {% endfor %}
+        </select>
+    <div>the opt paddock</div>
+        <select name="op_paddock_id" id="op_paddock_id" class="form-select" aria-label="Select Example">
+            <option selected>Select paddock</option>
+            {% for all_paddock in all_paddocks %}
+                <option value="{{ all_paddock[0] }}">{{ all_paddock[1] }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Submit" class="btn-primary">
+    </form>
+{% endblock %}
